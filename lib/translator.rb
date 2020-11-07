@@ -6,7 +6,7 @@ def load_library(file_path)
   emoticons = YAML.load_file(file_path)
 final_hash = {}
   emoticons.each do |key,value|
-   # binding.pry
+    binding.pry
     final_hash[key] = {:english => value[0], :japanese => value[1]}
     #binding.pry
     end
@@ -46,17 +46,18 @@ def get_english_meaning(file_path,emoticon)
   # code goes here
   library =load_library(file_path)
   #binding.pry
-  empty_string= ""
+  #empty_string= "" #saves value of emoticon so that if it is blank, can be referenced outside of if statement for 
   library.each do |key,value|
     #binding.pry
     if value[:japanese] == emoticon
      #binding.pry
-     empty_string = key
+   #  empty_string = key
     #binding.pry
-    return empty_string
+   # return empty_string
+   return key
         end
   end
-      if empty_string == "" 
+      #if empty_string == "" 
           return "Sorry, that emoticon was not found"
-            end
+          #  end
 end
